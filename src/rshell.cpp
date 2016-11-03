@@ -57,7 +57,7 @@ void executer(string cmd, int &status) {
 		perror("wait");
 	}
 }
-
+//use to deal with pound
 string dealwithPound(string input){
 	for(int i=0;i<input.size();i++){
 		if(input[i]=='#'){
