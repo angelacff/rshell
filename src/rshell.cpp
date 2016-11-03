@@ -102,7 +102,7 @@ void caculator(string input,int status){
 		}else if(connector[i]=='|'&&status==0){
 			flag=1;
 		}
-		i=0;
+		i++;
 	}
 }
 int main(){
