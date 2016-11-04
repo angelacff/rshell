@@ -27,7 +27,7 @@ int parsingSpace(string cmd, char* argv[]){
 	char_separator<char> space(" ");
 	tokenizer< char_separator<char> > token(cmd, space);
 	tokenizer< char_separator<char> >::iterator it = token.begin();
-	for (it; it != token.end(); ++it) {
+	for (it= token.begin(); it != token.end(); ++it) {
 		string mystring = *it;
 		char* temp = new char[mystring.size() + 1];
 		strcpy(temp, mystring.c_str());
@@ -59,7 +59,8 @@ void executer(string cmd, int &status) {
 }
 //use to deal with pound
 string dealwithPound(string input){
-	for(int i=0;i<input.size();i++){
+         unsigned i=0;
+	for(i=0;i<input.size();i++){
 		if(input[i]=='#'){
 			input=input.substr(0,i);
 		}
@@ -70,7 +71,7 @@ string dealwithPound(string input){
 //and '#'should be coped before
 string getConnector(string input){
 	string connector;
-	for(int i=0;i<input.size()-1;i++){
+	for(unsigned i=0;i<input.size()-1;i++){
 		if(input[i]=='&'&&input[i+1]=='&'){
 			connector=connector+"&";
 		}else if(input[i]=='|'&&input[i+1]=='|'){
@@ -90,7 +91,7 @@ void caculator(string input,int status){
 	tokenizer< char_separator<char> > mytoken(input, seperator);
 	tokenizer< char_separator<char> >::iterator it = mytoken.begin();
 	int i=0;
-	for (it; it != mytoken.end(); ++it) {
+	for (it=mytoken.begin(); it != mytoken.end(); ++it) {
 		string command=*it;
 		if (flag==0){
 			executer(command,status);
