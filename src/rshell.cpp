@@ -101,6 +101,7 @@ void parsing_pare(string input,string output[]){
 			}
 			i=k;
 			j++;
+
 		}else{
 			output[j]=input[i];
 			j++;
@@ -224,7 +225,7 @@ bool checktest(string command){
 }
 
 ///using to caculate &&, ||,; ,# .by setting flag
-void caculator(string input,int status){
+int caculator(string input,int status){
 	bool flag=0;
 	// input=dealwithPound(input);
 	string connector=getConnector(input);
@@ -236,30 +237,34 @@ void caculator(string input,int status){
 		string command=*it;
 		command=parentheses(command);
 		if (flag==0){
+		
 			if(checktest(command)){
-				test(command);
-			}else{
-				executer(command,status);
-			}	
-		}
+			test(command);
+		}else{
+			executer(command,status);
+			}
+			
+		}	
 		if(connector[i]==';'){
 			flag=0;
 		}else if(connector[i]=='&'&&status!=0){
 			flag=1;
+
 		}else if(connector[i]=='|'&&status==0){
 			flag=1;
 		}
 		i++;
 	}
+	return status;
 }
-void caculate2(string command[],string connector,int status){
+void caculate2(string command[],string connector,int &status){
 	bool flag=0;
 	if (connector.size()==0){
 		caculator(command[0],status);
 	}else {
 		for (unsigned i=0;command[i]!=END;i++) {
 			if (flag==0){
-				caculator(command[i],status);
+				status=caculator(command[i],status);
 			}
 			if(connector[i]==';'){
 				flag=0;
@@ -268,7 +273,7 @@ void caculate2(string command[],string connector,int status){
 			}else if(connector[i]=='|'&&status==0){
 				flag=1;
 			}
-			i++;
+			
 		}
 	}
 }
