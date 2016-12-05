@@ -1,0 +1,13 @@
+[dkong008@hammer rshell]$ make
+mkdir -p bin
+g++  -ansi -pedantic -Wall -Werror src/rshell.cpp -o bin/rshell
+[dkong008@hammer rshell]$ bin/rshell
+dkong008@hammer.cs.ucr.edu$ test /home/dkong008/
+(False)
+dkong008@hammer.cs.ucr.edu$ test /home/csmajs/dkong008
+(True)
+dkong008@hammer.cs.ucr.edu$ test dkong008
+(False)
+dkong008@hammer.cs.ucr.edu$ test /home/cdmajs/dkong008/rshell
+(False)
+

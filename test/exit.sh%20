@@ -1,0 +1,17 @@
+[dkong008@hammer rshell]$ bin/rshell
+dkong008@hammer.cs.ucr.edu$ (echo a ) && (echo b)
+a
+b
+dkong008@hammer.cs.ucr.edu$ (echo a || echo b)&&(echo c)
+a
+c
+dkong008@hammer.cs.ucr.edu$ exit
+[dkong008@hammer rshell]$ bin/rshell
+dkong008@hammer.cs.ucr.edu$ test a
+(False)
+dkong008@hammer.cs.ucr.edu$ test bin/rshell
+(True)
+dkong008@hammer.cs.ucr.edu$ test bin/rshell/test
+(False)
+dkong008@hammer.cs.ucr.edu$ exit
+[dkong008@hammer rshell]$

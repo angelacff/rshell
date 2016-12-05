@@ -1,0 +1,7 @@
+[dkong008@hammer rshell]$ bin/rshell
+dkong008@hammer.cs.ucr.edu$ test a #dfsf
+(False)
+dkong008@hammer.cs.ucr.edu$ test /home/csmajs/dkong008 #fgsfgfgsfs
+(True)
+dkong008@hammer.cs.ucr.edu$ test dfsda #dfsdfsdf
+(False)
